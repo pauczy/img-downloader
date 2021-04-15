@@ -5,14 +5,14 @@
 
 if [ $# -ne 1 ]
 then
-	echo "skrypt pobiera wszystkie obrazki ze strony www podanej jako argument"
-	echo "składnia: $0 adres_strony"
+	echo "the script downloads all images from a website given as its argument"
+	echo "syntax: $0 [URL]"
 	exit 1
 else
 	wget -k -qO tmp_file.txt $1 # -O do podanego pliku, -q bez komunikatów, -k ścieżki absolutne
 	if [ $? -ne 0 ] # jeśli nie udało się pobrać strony 
 	then
-		echo "podano błędny adres strony"
+		echo "error: invalid address"
 		rm tmp_file.txt 
 		exit 1
 	else
